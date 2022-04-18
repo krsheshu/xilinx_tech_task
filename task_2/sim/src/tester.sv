@@ -116,7 +116,7 @@ initial begin
                 // Run Test Suite 1
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d,  Running Test Suite 1",$time, i);
-                test_suite_1( 10, i );
+                test_suite_1( 100, i );
                 $display("*********************************************************");
             end
 
@@ -139,7 +139,7 @@ initial begin
                 // Run Test Suite 4
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d, Running Test Suite 4",$time, i);
-                test_suite_4(5, i);
+                test_suite_4(25, i);
                 $display("*********************************************************");
             end
         end
