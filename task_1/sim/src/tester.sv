@@ -14,14 +14,14 @@ import clock_period_pkg::CLKPERIOD_NS;
 
 task test_suite_1( int random_test_cases );
 
-    automatic int nb_pulses                 ;
+    automatic int nb_clks                 ;
 
     for ( int i=1; i<=random_test_cases; i++ )  begin
-        nb_pulses = $urandom & 16'hFFFF ;
+        nb_clks = $urandom & 16'hFFFF ;
         $display("-------------------------------------------");
-        $display("@%08d: Test Case %d: nb_pulses: %d",$time, i, nb_pulses);
+        $display("@%08d: Test Case %d: nb_clks: %d",$time, i, nb_clks);
         $display("-------------------------------------------");
-        bfm.send_pulse( nb_pulses );
+        bfm.send_pulse( nb_clks );
     end
 
 endtask : test_suite_1
@@ -92,6 +92,8 @@ endtask : test_suite_4
 
 initial begin
 
+    automatic int test_cases = 0;
+
     // reset the timer
     fork
         bfm.sreset_timer_ns   ( 10  );
@@ -99,21 +101,35 @@ initial begin
         bfm.reset_capture_ns  ( 50  );
     join
 
+    test_cases = 100;
     // Run Test Suite 1
+    $display("*********************************************************");
     $display("@%08d: Running Test Suite 1",$time);
-    test_suite_1( 100 );
+    $display("@%08d: %4d Test cases by sending an event ( start->capture) with randomized number of clks",$time, test_cases);
+    test_suite_1( test_cases );
+    $display("*********************************************************");
 
     // Run Test Suite 2
+    $display("*********************************************************");
     $display("@%08d: Running Test Suite 2",$time);
+    $display("@%08d: Tests by sending an event ( start->capture->capture) with fixed number of clks",$time);
     test_suite_2( );
+    $display("*********************************************************");
 
     // Run Test Suite 3
+    $display("*********************************************************");
     $display("@%08d: Running Test Suite 3",$time);
+    $display("@%08d: Tests by sending an event ( start->capture->start->capture) with fixed number of clks",$time);
     test_suite_3( );
+    $display("*********************************************************");
 
     // Run Test Suite 4
+    test_cases = 25;
+    $display("*********************************************************");
     $display("@%08d: Running Test Suite 4",$time);
-    test_suite_4( 25 );
+    $display("@%08d: %4d Test cases by sending an event ( alarm ) with randomized number of clks for alarm_in",$time, test_cases);
+    test_suite_4( test_cases );
+    $display("*********************************************************");
 
     $finish;
 end

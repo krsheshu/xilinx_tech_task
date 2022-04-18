@@ -17,13 +17,13 @@ import clock_period_pkg::CLKPERIOD_NS;
 
 task test_suite_1( int random_test_cases, int nb_instance );
 
-    automatic int nb_pulses                 ;
+    automatic int nb_clks   ;
 
     $display("-------------------------------------------");
     for ( int i=1; i<=random_test_cases; i++ )  begin
-        nb_pulses = $urandom & 16'hFFFF ;
-        $display("@%08d: Scoreboard Instance nb: %8d, Test Case %8d: nb_pulses: %8d",$time, nb_instance, i, nb_pulses);
-        bfm.send_pulse( nb_pulses, nb_instance );
+        nb_clks = $urandom & 16'hFFFF ;
+        $display("@%08d: Scoreboard Instance nb: %8d, Test Case %8d: nb_clks: %8d",$time, nb_instance, i, nb_clks);
+        bfm.send_pulse( nb_clks, nb_instance );
     end
     $display("-------------------------------------------");
 
@@ -95,6 +95,7 @@ endtask : test_suite_4
 
 initial begin
 
+    automatic int test_cases = 0;
     // Run Reset tests
     bfm.areset_timer_ns   ( 100 );
     #50;
@@ -114,9 +115,11 @@ initial begin
 
             begin
                 // Run Test Suite 1
+                test_cases = 100;
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d,  Running Test Suite 1",$time, i);
-                test_suite_1( 100, i );
+                $display("@%08d: %4d Test cases by sending an event ( start->capture) with randomized number of clks",$time,test_cases);
+                test_suite_1( test_cases, i );
                 $display("*********************************************************");
             end
 
@@ -124,6 +127,7 @@ initial begin
                 // Run Test Suite 2
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d, Running Test Suite 2",$time, i);
+                $display("@%08d: Tests by sending an event ( start->capture->capture) with fixed number of clks",$time);
                 test_suite_2( i );
                 $display("*********************************************************");
             end
@@ -132,14 +136,17 @@ initial begin
                 // Run Test Suite 3
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d, Running Test Suite 3",$time, i);
+                $display("@%08d: Tests by sending an event ( start->capture->start->capture) with fixed number of clks",$time);
                 test_suite_3( i );
                 $display("*********************************************************");
             end
             begin
                 // Run Test Suite 4
+                test_cases = 25;
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d, Running Test Suite 4",$time, i);
-                test_suite_4(25, i);
+                $display("@%08d: %4d Test cases by sending an event ( alarm ) with randomized number of clks for alarm_in",$time,test_cases);
+                test_suite_4(test_cases, i);
                 $display("*********************************************************");
             end
         end
