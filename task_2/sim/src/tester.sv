@@ -107,9 +107,6 @@ initial begin
 
     end
 
-    //fork
-    //  begin
-
           for ( int i=0; i<NB_INSTANCES; i++ )  begin
 
 
@@ -150,9 +147,6 @@ initial begin
                 $display("*********************************************************");
             end
         end
-
-    //  end
-    //join
 
     #5000;
     $finish;

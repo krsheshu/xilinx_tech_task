@@ -219,41 +219,6 @@ module scoreboard  #(  parameter   TIMER_BITWIDTH    =   32  ,
 // Main block
 //----------------------------------------------------------------------------------
 
-  initial begin
-
-      //fork  begin
-
-      //        for ( int i=0 ; i<NB_INSTANCES; i++ ) begin
-      //            begin
-      //                scoreboard_captured       ( i );
-      //            end
-
-      //            begin
-      //                scoreboard_counter        ( i );
-      //            end
-
-      //            begin
-      //                scoreboard_rst_capture_in ( i );
-      //            end
-
-      //            begin
-      //                scoreboard_rst            ( i );
-      //            end
-
-      //            begin
-      //                scoreboard_rst_an         ( i );
-      //            end
-
-      //            begin
-      //                scoreboard_alarm_out      ( i );
-      //            end
-      //        end
-
-      //  end
-      //join
-
-  end
-
   final begin
 
       $display("\n\n-------------------------------------------");
