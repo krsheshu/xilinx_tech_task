@@ -7,5 +7,6 @@
 package clock_period_pkg;
 
     parameter CLKPERIOD_NS = 8.196       ;   // 122MHz
+    parameter CLKPERIOD_ALARM__NS = 6.667       ;   // 150MHz
 
 endpackage

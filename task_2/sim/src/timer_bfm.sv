@@ -4,9 +4,6 @@
 //  Author : Sheshu Ramanandan : krsheshu@gmail.com
 //-------------------------------------------------------------
 
-parameter CLKPERIOD_NS        = 8.196       ;   // 122MHz
-parameter CLKPERIOD_ALARM__NS = 6.667       ;   // 150MHz
-
 
 interface timer_bfm  #(
                           parameter   TIMER_BITWIDTH  =   32    ,
@@ -14,6 +11,8 @@ interface timer_bfm  #(
                       )
 
                     ( );
+
+import clock_period_pkg::*;
 
 //-------------------------------------------------------------
 //  Interface signals
