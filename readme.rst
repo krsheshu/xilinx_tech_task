@@ -8,5 +8,5 @@ How to Run?
       - task_1 has 6 parallel scoreboards running
 
   - Goto task_2/sim and run make
-      - task_1 has by default 60 parallel scoreboards running
+      - task_2 has by default 60 parallel scoreboards running
 
