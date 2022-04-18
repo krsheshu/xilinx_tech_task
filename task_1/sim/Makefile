@@ -96,4 +96,4 @@ view_wave:	${WDB_FILE}
 
 clean:
 
-		rm -rf work
+		rm -rf ${OUTPUT_DIR}
