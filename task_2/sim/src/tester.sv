@@ -133,7 +133,7 @@ initial begin
                 // Run Test Suite 3
                 $display("*********************************************************");
                 $display("@%08d: Scoreboard Instance nb: %8d, Running Test Suite 3",$time, i);
-                $display("@%08d: Tests by sending an event ( start->capture->start->capture) with fixed number of clks",$time);
+                $display("@%08d: Tests by sending an event ( start->rst_capture->start->capture) with fixed number of clks",$time);
                 test_suite_3( i );
                 $display("*********************************************************");
             end
