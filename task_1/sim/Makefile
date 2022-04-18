@@ -66,14 +66,14 @@ ${TB_RLX_FILE}: ${TB_SRC_DIR}/*.sv
 ${ELAB_FILE}: ${IP_RLX_FILE} ${TB_RLX_FILE}
 
 		@( mkdir -p ${OUTPUT_DIR} &&	cd ${OUTPUT_DIR}					&&	\
-		${ELAB_BIN} ${ELAB_OPTIONS} -L ${IP_LIB}=${IP_LIB} -L ${TB_LIB}=${TB_LIB}	-s ${SIM_SNAPSHOT} ${TB_LIB}.tb_timer_top )
+		${ELAB_BIN} ${ELAB_OPTIONS} -L ${IP_LIB}=${IP_LIB} -L ${TB_LIB}=${TB_LIB} -s ${SIM_SNAPSHOT} ${TB_LIB}.tb_timer_top )
 
 
 #-------------------------------------------------------------------------------
 
 sim_cli: ${ELAB_FILE}
 
-		@( cd ${OUTPUT_DIR}													&&	\
+		@( cd ${OUTPUT_DIR}														&&	\
 		${SIM_BIN} ${SIM_SNAPSHOT} -t ${TB_SCR_DIR}/run_sim.tcl					)
 
 
