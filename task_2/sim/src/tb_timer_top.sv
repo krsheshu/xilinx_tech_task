@@ -1,6 +1,5 @@
-
 //-------------------------------------------------------------
-//  Tech Task 1 - Xilinx
+//  Tech Task 2 - Xilinx
 //  Tester  tb top
 //  Author : Sheshu Ramanandan : krsheshu@gmail.com
 //-------------------------------------------------------------

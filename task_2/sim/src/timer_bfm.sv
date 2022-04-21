@@ -1,5 +1,5 @@
 //-------------------------------------------------------------
-//  Tech Task 1 - Xilinx
+//  Tech Task 2 - Xilinx
 //  Timer BFM Interface
 //  Author : Sheshu Ramanandan : krsheshu@gmail.com
 //-------------------------------------------------------------

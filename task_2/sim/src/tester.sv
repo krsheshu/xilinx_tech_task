@@ -1,5 +1,5 @@
 //-------------------------------------------------------------
-//  Tech Task 1 - Xilinx
+//  Tech Task 2 - Xilinx
 //  Tester Block
 //  Author : Sheshu Ramanandan : krsheshu@gmail.com
 //-------------------------------------------------------------

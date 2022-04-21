@@ -1,5 +1,5 @@
 //-------------------------------------------------------------
-//  Tech Task 1
+//  Tech Task 2
 //  Reset Synchronizer Module
 //  Async assert Sync Deasset Reset synchronizer
 //-------------------------------------------------------------
